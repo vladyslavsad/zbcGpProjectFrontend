@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -36,7 +37,7 @@ namespace zbc_gp_project_frontend.Services
             }
             catch (Exception ex) 
             {
-                Console.WriteLine("Nerværksfejl " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
            
@@ -55,7 +56,7 @@ namespace zbc_gp_project_frontend.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Nerværksfejl " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }
@@ -80,7 +81,7 @@ namespace zbc_gp_project_frontend.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Nerværksfejl " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return null;
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -78,7 +79,7 @@ namespace zbc_gp_project_frontend.Menu
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Netværksfejl: " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }
@@ -104,7 +105,7 @@ namespace zbc_gp_project_frontend.Menu
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Nerværksfejl " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }
@@ -136,7 +137,7 @@ namespace zbc_gp_project_frontend.Menu
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Nerværksfejl " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }
@@ -178,7 +179,7 @@ namespace zbc_gp_project_frontend.Menu
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Nerværksfejl " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }

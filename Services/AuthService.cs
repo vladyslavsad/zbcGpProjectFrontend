@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using zbc_gp_project_frontend.Interfaces;
 using zbc_gp_project_frontend.Models;
+using System.Windows;
 using static Program;
+using System.Diagnostics;
 
 namespace zbc_gp_project_frontend.Services
 {
@@ -30,7 +32,7 @@ namespace zbc_gp_project_frontend.Services
                 var resp = await _httpClient.PostAsJsonAsync(LoginPath, dto);
                 if (!resp.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Forkert brugernavn eller adgangskode");
+                    Process.Start("msg", "* Forkert brugernavn eller adgangskode");
                     return false;
                 }
                 var json = await resp.Content.ReadFromJsonAsync<TokenResponseModel>();
@@ -42,7 +44,7 @@ namespace zbc_gp_project_frontend.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Netværksfejl: " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }
@@ -56,7 +58,7 @@ namespace zbc_gp_project_frontend.Services
                 var resp = await _httpClient.PostAsJsonAsync(RegisterPath, dto);
                 if (!resp.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Registration er fejlet");
+                    Process.Start("msg", "* Registration er fejlet");
                     return false;
                 }
                
@@ -66,7 +68,7 @@ namespace zbc_gp_project_frontend.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Netværksfejl: " + ex.Message);
+                Process.Start("msg", $"* Netværksfejl: {ex.Message}");
                 return false;
             }
         }
